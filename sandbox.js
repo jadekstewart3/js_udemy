@@ -133,3 +133,18 @@ const calcArea = (radius) => 3.14 * radius**2;
 const area = calcArea(5);
 console.log(area);
 
+//functions vs methods
+//methods are functions within objects
+
+//functions
+const name = "shaun";
+
+const greet2 = () => "hello";
+
+let result11 = greet2();
+console.log(result11);
+
+//methods
+let resultTwo = name.toUpperCase();
+console.log(resultTwo);
+//defined on a data type or object

@@ -91,45 +91,94 @@
 //switch statements use strict equality === to evaluate cases
 
 //variables and block scope
-let age = 30;
+// let age = 30;
 //cannot change value of let variable within the same scope
 //let and const are block scoped
 //var is function scoped
-console.log(age);
-if(true){
-  age = 40;
-  //can only access this version of age within this code block
-  console.log(age, "First code block");
-}
+// console.log(age);
+// if(true){
+//   age = 40;
+//   //can only access this version of age within this code block
+//   console.log(age, "First code block");
+// }
 
 //FUNctions
 //just like ruby methods
 //have parentheses for some reason
 
 //function declaration
-function greet(){
-  //code for function goes here
-  console.log('hello, there cutie!');
-}
-//invoke the function
-greet();
+// function greet(){
+//   //code for function goes here
+//   console.log('hello, there cutie!');
+// }
+// //invoke the function
+// greet();
 
 //function expression
-const speak = function(name){
-  console.log(`good day! ${name}`);
-};
-//invokation
-speak("Jade");
+// const speak = function(name){
+//   console.log(`good day! ${name}`);
+// };
+// //invokation
+// speak("Jade");
 
 //function delcarations are hoisted to the top of the file
 
 //arrow functions
-const calcArea = (radius) => 3.14 * radius**2;
+// const calcArea = (radius) => 3.14 * radius**2;
 //doesnt use the function keyword
 //dont need parentheses if only one parameter
 //do need parentheses if no parameters or more than one
 //dont need curly braces if only one line of code
 
-const area = calcArea(5);
-console.log(area);
+// const area = calcArea(5);
+// console.log(area);
 
+//functions vs methods
+//methods are functions within objects
+
+//functions
+// const name = "shaun";
+
+// const greet2 = () => "hello";
+
+// let result11 = greet2();
+// console.log(result11);
+
+//methods
+// let resultTwo = name.toUpperCase();
+// console.log(resultTwo);
+//defined on a data type or object
+
+//callback functions
+// const myFunc = (callbackFunc) => {
+//   //do something
+//   let value = 50;
+//   callbackFunc(value);
+// };
+
+// myFunc(value => {
+//   //do something
+//   console.log(value);
+// });
+
+let people = [ 'mario', 'luigi', 'ryu', 'shaun', 'chun-li'];
+
+// const logPerson = (person, index) => {
+//   console.log(`${index} - Hellur ${person}`);
+// }
+
+// people.forEach(logPerson);
+//this is just basic ruby iteration
+
+//get a reference to the 'ul'
+const ul = document.querySelector('.people');
+
+let html = ``;
+
+people.forEach(person =>{
+  //create html template
+  html += `<li style="color: purple">${person}</li>`;
+});
+
+console.log(html);
+ul.innerHTML = html;

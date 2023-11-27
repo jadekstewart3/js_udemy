@@ -71,3 +71,6 @@
   //stack & heap
   //stack is a small amount of memory that is allocated to your application
   //heap is a large pool of memory that is available to your application
+  //stack is fast but limited
+  //heap is slower but can be much larger
+  

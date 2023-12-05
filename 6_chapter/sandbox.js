@@ -161,7 +161,7 @@
 //iterate through the list and add success class if it contains success
 //add error class if it contains error
 
-const paras = document.querySelectorAll("p");
+// const paras = document.querySelectorAll("p");
 //my solution
 // paras.forEach(para => {
 //   if (para.innerText.includes("success")) {
@@ -181,13 +181,43 @@ const paras = document.querySelectorAll("p");
 // })
 //this solution works if the text is not visible on the page
 
-const title = document.querySelector(".title");
+// const title = document.querySelector(".title");
 
-title.classList.toggle("test");
+// title.classList.toggle("test");
 //adds the class test
-title.classList.toggle("test");
+// title.classList.toggle("test");
 //removes the class test
 
-//parents, children and siblings
+//PARENTS CHILDREN AND SIBLINGS
 
 //node relations = relationships between nodes  
+
+// const article = document.querySelector("article");
+
+// console.log(article.children);
+
+// console.log(Array.from(article.children));
+//converts the HTML collection to an array so you can forEach over it
+//does not alter the original HTML collection
+
+// Array.from(article.children).forEach(child => {
+//   child.classList.add("article-element");
+// })
+//adds a class to each child
+//can use this to add a class to each child of a parent
+
+// const title = document.querySelector("h2");
+
+// console.log(title.parentElement);
+// console.log(title.parentElement.parentElement);
+//returns the parent of the parent
+// console.log(title.nextElementSibling);
+//returns the next sibling
+// console.log(title.previousElementSibling);
+//returns the previous sibling
+
+//chaining
+// console.log(title.nextElementSibling.parentElement.children);
+//returns all the children of the parent of the next sibling
+//in the form of an HTML collection
+

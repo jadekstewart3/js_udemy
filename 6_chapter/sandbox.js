@@ -221,3 +221,57 @@
 //returns all the children of the parent of the next sibling
 //in the form of an HTML collection
 
+//EVENTS BASICS
+
+//react to a user clicking on a button
+// query the DOM to get the element where we expect the event to happen
+// add an event listener to that element
+//write a callback function that runs whene the event happnens
+
+// const button = document.querySelector("button");
+// button.addEventListener("click", () => {
+//   console.log("you clicked me");
+// });
+//the first argument is the event we are listening for
+//the second argument is the callback function
+//the callback function is called when the event happens
+//when the click event happens the text is logged to the console
+
+const items = document.querySelectorAll("li");
+//returns a node list that you can iterate through
+
+items.forEach(item => {
+  item.addEventListener("click", e =>{
+    // console.log('item clicked')
+    // console.log(e.target);
+    // console.log(item);
+    // e.target.style.textDecoration = "line-through";
+    e.target.remove();
+  });
+});
+
+//cycles through the list items and adds an event listener to each one
+
+//CREATING AND REMOVING ELEMENTS
+ 
+///delete an element from the DOM
+// const ul = document.querySelector("ul");
+// ul.remove();
+//this will remove the ul and its contents from the dom
+
+
+// adding content to a webpage
+
+const  button = document.querySelector("button");
+
+button.addEventListener("click", () => {
+  const li = document.createElement("li");
+  li.textContent = "something new to do";
+  ul.append(li);
+});
+//creates a new li element and adds it to the ul element
+
+//EVENT BUBBLING
+
+
+

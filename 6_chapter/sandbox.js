@@ -237,18 +237,18 @@
 //the callback function is called when the event happens
 //when the click event happens the text is logged to the console
 
-const items = document.querySelectorAll("li");
+// const items = document.querySelectorAll("li");
 //returns a node list that you can iterate through
 
-items.forEach(item => {
-  item.addEventListener("click", e =>{
+// items.forEach(item => {
+//   item.addEventListener("click", e =>{
     // console.log('item clicked')
     // console.log(e.target);
     // console.log(item);
     // e.target.style.textDecoration = "line-through";
-    e.target.remove();
-  });
-});
+//     e.target.remove();
+//   });
+// });
 
 //cycles through the list items and adds an event listener to each one
 
@@ -262,16 +262,60 @@ items.forEach(item => {
 
 // adding content to a webpage
 
-const  button = document.querySelector("button");
+// const  button = document.querySelector("button");
 
-button.addEventListener("click", () => {
-  const li = document.createElement("li");
-  li.textContent = "something new to do";
-  ul.append(li);
-});
+// button.addEventListener("click", () => {
+//   const li = document.createElement("li");
+//   li.textContent = "something new to do";
+//   ul.append(li);
+// });
 //creates a new li element and adds it to the ul element
 
-//EVENT BUBBLING
+//EVENT BUBBLING (and delgation)
 
+//when an even occurs that element becomes the event target
+//the event bubbles up through the DOM
+//the event bubbles up to the parent element
+//if it finds an event listener on the parent element it will run the callback function
+// const ul = document.querySelector("ul");
+// const button = document.querySelector("button");
+// const items = document.querySelectorAll("li");
 
+// button.addEventListener("click", () => {
+//   const li = document.createElement("li");
+//   li.textContent = "something new to do";
+//   ul.prepend(li);
+// });
 
+// items.forEach(item => {
+//   item.addEventListener("click", e  => {
+//     console.log("event in LI");
+//     e.stopPropagation();
+//     e.target.remove();
+//   });
+// });
+
+// ul.addEventListener("click", e => {
+  // console.log("event in UL");
+  // console.log(e.target);
+// });
+
+//this will log the event in the li and the ul
+//the event bubbles up to the parent element
+
+//we can stop the event from bubbling up using stopPropagation
+
+//EVENT DELEGATION
+
+// button.addEventListener("click", () => {
+//   const li = document.createElement("li");
+//   li.textContent = "something new to do";
+//   ul.prepend(li);
+// });
+
+// ul.addEventListener("click", e => {
+  // console.log(e);
+//   if(e.target.tagName === "LI"){
+//     e.target.remove();
+//   }
+// });

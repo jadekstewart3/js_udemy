@@ -319,3 +319,7 @@
 //     e.target.remove();
 //   }
 // });
+
+
+//event listers are expensive
+//kind of like routing a button click in rails but with JS

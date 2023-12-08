@@ -323,3 +323,21 @@
 
 //event listers are expensive
 //kind of like routing a button click in rails but with JS
+
+const copy = document.querySelector(".copy-me");
+copy.addEventListener("copy",() => {
+  console.log("OI! My content is copyright!");
+});
+
+const box = document.querySelector(".box");
+
+box.addEventListener("mousemove", e => {
+  // console.log(e.offsetX, e.offsetY);
+  box.textContent = `x pos ${e.offsetX} - y pos ${e.offsetY}`;
+});
+//this will log the x and y position of the mouse in the box
+
+document.addEventListener("wheel", e => {
+  console.log(e.pageX, e.pageY);
+});
+//wheel is a scroll event

@@ -6,11 +6,22 @@
 //get a reference to the form
 const form = document.querySelector('.signup-form');
 // const username = document.querySelector('#username');
+const feedback = document.querySelector('.feedback');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
   // console.log(username.value)
-  console.log(form.username.value);
+  // console.log(form.username.value);
+  //validation
+ const username = form.username.value;
+ const usernamePattern = /^[a-zA-Z]{6,12}$/;
+ if(usernamePattern.test(username)){
+  //feedback good info
+  feedback.textContent = 'that username is valid!';
+ }else{
+  //feedback help info
+  feedback.textContent = 'username must contain letters only & be between 6 & 12 characters long';
+ }
 });
 //attaching a submit event will submit the form even if the user just hits enter
 //submit events by default just refresh the browser
@@ -42,10 +53,10 @@ form.addEventListener('submit', e => {
 
 //testing regex
 
-const username = "shaunp";
+// const username = "shaunp";
 
 // create a regex and store it in a variable
-const pattern = /^[a-z]{6,}$/;
+// const pattern = /^[a-z]{6,}$/;
 
 // let result = pattern.test(username);
 // console.log(result);
@@ -56,6 +67,8 @@ const pattern = /^[a-z]{6,}$/;
 //   console.log('regex test failed :(');
 // }
 
-let result = username.search(pattern);
+// let result = username.search(pattern);
 //returns the index of the first match
-console.log(result);
+// console.log(result);
+
+//basic form validation

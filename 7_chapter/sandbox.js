@@ -8,13 +8,14 @@ const form = document.querySelector('.signup-form');
 // const username = document.querySelector('#username');
 const feedback = document.querySelector('.feedback');
 
+const usernamePattern = /^[a-zA-Z]{6,12}$/;
+
 form.addEventListener('submit', e => {
   e.preventDefault();
   // console.log(username.value)
   // console.log(form.username.value);
   //validation
  const username = form.username.value;
- const usernamePattern = /^[a-zA-Z]{6,12}$/;
  if(usernamePattern.test(username)){
   //feedback good info
   feedback.textContent = 'that username is valid!';
@@ -22,6 +23,16 @@ form.addEventListener('submit', e => {
   //feedback help info
   feedback.textContent = 'username must contain letters only & be between 6 & 12 characters long';
  }
+});
+
+//live feedback
+form.username.addEventListener('keyup', e => {
+  // console.log(e.target.value, form.username.value);
+  if(usernamePattern.test(e.target.value)){
+    form.username.setAttribute('class', 'success');
+  }else{
+    form.username.setAttribute('class', 'error');
+  }
 });
 //attaching a submit event will submit the form even if the user just hits enter
 //submit events by default just refresh the browser
@@ -72,3 +83,8 @@ form.addEventListener('submit', e => {
 // console.log(result);
 
 //basic form validation
+// see method above
+
+//keyboard events
+//keyup event
+// fires a callback function when a key is released

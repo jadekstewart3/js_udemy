@@ -40,3 +40,22 @@ form.addEventListener('submit', e => {
 // i case insensitive modifier
 // g global search modifier
 
+//testing regex
+
+const username = "shaunp";
+
+// create a regex and store it in a variable
+const pattern = /^[a-z]{6,}$/;
+
+// let result = pattern.test(username);
+// console.log(result);
+
+// if(result){
+//   console.log('regex test passed :)');
+// } else{
+//   console.log('regex test failed :(');
+// }
+
+let result = username.search(pattern);
+//returns the index of the first match
+console.log(result);

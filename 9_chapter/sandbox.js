@@ -96,3 +96,48 @@
 
 // const firstHighScore = scores.find(score => score > 50);
 // console.log(firstHighScore);
+
+//sort method
+
+// const names = ["mario", "shaun", "chun-li", "yoshi", "luigi"];
+
+// names.sort();
+
+// console.log(names);
+//alters the original array
+//sorts alphabetically
+//numbers get a little weird
+
+// names.reverse();  //reverses the array
+//same as ruby
+
+const players =[
+  { name: "mario", score: 20 },
+  { name: "luigi", score: 10 },
+  { name: "chun-li", score: 50 },
+  { name: "yoshi", score: 30 },
+  { name: "shaun", score: 70 },
+];
+//sort by score
+
+//long way
+// players.sort((a, b) => {
+//   if(a.score > b.score){
+//     return -1;
+//   } else if (b.score > a.score){
+//     return 1;
+//   } else{
+//     return 0;
+//   }
+// });
+// console.log(players);
+
+
+players.sort((a, b) => b.score -a.score);
+
+console.log(players);
+
+//does exctly the same thing as above
+//sorts by having a positive, negative, or 0 value
+
+//chaining array methods

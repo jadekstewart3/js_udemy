@@ -1,6 +1,7 @@
 const addForm = document.querySelector('.add');
 const list = document.querySelector('.todos');
 
+
 const generateTemplate = todo => {
 
   const html = `
@@ -21,5 +22,13 @@ addForm.addEventListener("submit", e => {
     // resets all of the input fields in the form
   } else {
     alert('Please enter a valid todo');
+  }
+});
+
+//delete todos
+
+list.addEventListener("click", e => {
+  if(e.target.classList.contains("delete")){
+    e.target.parentElement.remove();
   }
 });

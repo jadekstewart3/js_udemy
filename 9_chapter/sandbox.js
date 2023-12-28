@@ -133,11 +133,34 @@ const players =[
 // console.log(players);
 
 
-players.sort((a, b) => b.score -a.score);
+// players.sort((a, b) => b.score -a.score);
 
-console.log(players);
+// console.log(players);
 
 //does exctly the same thing as above
 //sorts by having a positive, negative, or 0 value
 
 //chaining array methods
+
+const products = [
+  { name: "gold star", price: 30 },
+  { name: "green shell", price: 10 },
+  { name: "red shell", price: 40 },
+  { name: "banana skin", price: 5 },
+  { name: "mushroom", price: 50 },
+];
+
+// filter the array
+// map to new array
+
+// const filtered = products.filter(product => product.price > 20);
+
+// const promos = filtered.map(product => {
+//   return `the ${product.name} is $${product.price / 2}`
+// });
+
+const promos = products
+  .filter(product => product.price > 20)
+  .map(product => `the ${product.name} is $${product.price / 2}`);
+
+console.log(promos);

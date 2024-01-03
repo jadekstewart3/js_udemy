@@ -55,3 +55,9 @@ const now = new Date();
 console.log(datefns.format(now, 'YYYY')); //year
 console.log(datefns.format(now, 'MMMM')); //month name
 // check docs its pretty self explanatory
+// console.log(datefns.format(now, 'dddd')); //day of the week
+// console.log(datefns.format(now, 'Do')); //day of the month
+// console.log(datefns.format(now, 'dddd Do MMMM YYYY')); //full date
+// console.log(datefns.format(now, 'h')); //hour
+// console.log(datefns.format(now, 'mm')); //minutes
+// console.log(datefns.format(now, 'a')); //am or pm

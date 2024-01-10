@@ -61,3 +61,6 @@ console.log(datefns.format(now, 'MMMM')); //month name
 // console.log(datefns.format(now, 'h')); //hour
 // console.log(datefns.format(now, 'mm')); //minutes
 // console.log(datefns.format(now, 'a')); //am or pm
+
+//comparing dates
+

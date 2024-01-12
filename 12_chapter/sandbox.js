@@ -28,3 +28,7 @@ request.open("GET", "https://jsonplaceholder.typicode.com/todos/");
 //kind of like establishing a connection in ruby
 request.send();
 // sends the request to the server
+// we can see the response in the console
+// we get a response object back
+// we can see the response text
+// we can see the status code

@@ -19,7 +19,8 @@ const getTodos = (callback) => {
 
   request.addEventListener("readystatechange", () => {
     if (request.readyState === 4 && request.status === 200) {
-      callback(undefined, request.responseText);
+      const data = JSON.parse(request.responseText);
+      callback(undefined, data);
     } else if (request.readyState === 4) {
       callback("could not fetch data", undefined);
     }
@@ -38,3 +39,6 @@ if(error){
 }});
 
 //JSON data
+// JavaScript Object Notation
+// Format for sending data
+//take json strings and convert them into javascript objects

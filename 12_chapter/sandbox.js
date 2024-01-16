@@ -13,24 +13,27 @@
 
 // Making HTTP requests  (XHR)
 
-const request = new XMLHttpRequest();
-// XMLHttpRequest is built into the javascript language
+const getTodos = (callback) => {
+  const request = new XMLHttpRequest();
+  // XMLHttpRequest is built into the javascript language
 
-request.addEventListener("readystatechange", () => {
-  // console.log(request, request.readyState);
-  if(request.readyState === 4 && request.status === 200){
-    console.log(request.responseText);
-  } else if (request.readyState === 4){
-    console.log("could not fetch the data");
-  }
-});
-request.open("GET", "https://jsonplaceholder.typicode.com/todos/");
-//first argument is the type of request we want to make
-// second argument is the url we want to make the request to
-//kind of like establishing a connection in ruby
-request.send();
-// sends the request to the server
-// we can see the response in the console
-// we get a response object back
-// we can see the response text
-// we can see the status code
+  request.addEventListener("readystatechange", () => {
+    if (request.readyState === 4 && request.status === 200) {
+      callback(undefined, request.responseText);
+    } else if (request.readyState === 4) {
+      callback("could not fetch data", undefined);
+    }
+  });
+
+  request.open("GET", "https://jsonplaceholder.typicode.com/todos/");
+  request.send();
+};
+
+getTodos((error, data) => {
+  console.log("callback fired");
+if(error){
+  console.log(error);
+} else {
+  console.log(data);
+}});
+

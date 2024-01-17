@@ -42,3 +42,5 @@ if(error){
 // JavaScript Object Notation
 // Format for sending data
 //take json strings and convert them into javascript objects
+// JSON.parse() takes a json string and converts it into a javascript object
+// JSON.stringify() takes a javascript object and converts it into a json string

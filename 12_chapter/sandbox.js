@@ -30,15 +30,30 @@ const getTodos = (resource, callback) => {
   request.send();
 };
 
-getTodos('todos/luigi.json', (error, data) => {
-  console.log(data);
-  getTodos('todos/mario.json', (error, data) => {
-    console.log(data);
-    getTodos('todos/jade.json', (error, data) => {
-      console.log(data);
-    });
+// getTodos('todos/luigi.json', (error, data) => {
+//   console.log(data);
+//   getTodos('todos/mario.json', (error, data) => {
+//     console.log(data);
+//     getTodos('todos/jade.json', (error, data) => {
+//       console.log(data);
+//     });
+//   });
+// });
+
+//promise example
+const getSomething = () =>{
+  return new Promise((resolve, reject) => {
+    // resolve("some data");
+    reject("some error");
   });
+};
+
+getSomething().then((data) =>{
+  console.log(data);
+}, (error) => {
+  console.log(error);
 });
+
 
 //JSON data
 // JavaScript Object Notation
@@ -46,3 +61,4 @@ getTodos('todos/luigi.json', (error, data) => {
 //take json strings and convert them into javascript objects
 // JSON.parse() takes a json string and converts it into a javascript object
 // JSON.stringify() takes a javascript object and converts it into a json string
+

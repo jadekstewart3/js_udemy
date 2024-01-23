@@ -13,7 +13,7 @@
 
 // Making HTTP requests  (XHR)
 
-const getTodos = (callback) => {
+const getTodos = (resource, callback) => {
   const request = new XMLHttpRequest();
   // XMLHttpRequest is built into the javascript language
 
@@ -26,17 +26,19 @@ const getTodos = (callback) => {
     }
   });
 
-  request.open("GET", "https://jsonplaceholder.typicode.com/todos/");
+  request.open("GET", resource);
   request.send();
 };
 
-getTodos((error, data) => {
-  console.log("callback fired");
-if(error){
-  console.log(error);
-} else {
+getTodos('todos/luigi.json', (error, data) => {
   console.log(data);
-}});
+  getTodos('todos/mario.json', (error, data) => {
+    console.log(data);
+    getTodos('todos/jade.json', (error, data) => {
+      console.log(data);
+    });
+  });
+});
 
 //JSON data
 // JavaScript Object Notation

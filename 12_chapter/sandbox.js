@@ -54,7 +54,7 @@ getSomething().then((data) =>{
   console.log(error);
 });
 
-
+// promises either resolve or reject something
 //JSON data
 // JavaScript Object Notation
 // Format for sending data

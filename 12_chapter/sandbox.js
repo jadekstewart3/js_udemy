@@ -13,22 +13,32 @@
 
 // Making HTTP requests  (XHR)
 
-const getTodos = (resource, callback) => {
-  const request = new XMLHttpRequest();
-  // XMLHttpRequest is built into the javascript language
+const getTodos = (resource) => {
+  return new Promise((resolve, reject)=> {
 
-  request.addEventListener("readystatechange", () => {
-    if (request.readyState === 4 && request.status === 200) {
-      const data = JSON.parse(request.responseText);
-      callback(undefined, data);
-    } else if (request.readyState === 4) {
-      callback("could not fetch data", undefined);
-    }
+    const request = new XMLHttpRequest();
+    // XMLHttpRequest is built into the javascript language
+  
+    request.addEventListener("readystatechange", () => {
+      if (request.readyState === 4 && request.status === 200) {
+        const data = JSON.parse(request.responseText);
+        resolve(data);
+      } else if (request.readyState === 4) {
+        reject("could not fetch the data");
+      }
+    });
+  
+    request.open("GET", resource);
+    request.send();
   });
-
-  request.open("GET", resource);
-  request.send();
 };
+
+getTodos("todos/luigi.json").then( data =>{
+  console.log("promise resolved:", data);
+}).catch( error =>{
+  console.log("promise rejected:", error);
+});
+
 
 // getTodos('todos/luigi.json', (error, data) => {
 //   console.log(data);
@@ -41,20 +51,27 @@ const getTodos = (resource, callback) => {
 // });
 
 //promise example
-const getSomething = () =>{
-  return new Promise((resolve, reject) => {
-    // resolve("some data");
-    reject("some error");
-  });
-};
+// const getSomething = () =>{
+//   return new Promise((resolve, reject) => {
+//     // resolve("some data");
+//     reject("some error");
+//   });
+// };
 
-getSomething().then((data) =>{
-  console.log(data);
-}, (error) => {
-  console.log(error);
-});
+// getSomething().then((data) =>{
+//   console.log(data);
+// }, (error) => {
+//   console.log(error);
+// });
 
+// getSomething().then((data) => {
+//   console.log(data);
+// }).catch(error => {
+//   console.log(error);
+// })
 // promises either resolve or reject something
+// kind of like begin rescue blocks in ruby
+
 //JSON data
 // JavaScript Object Notation
 // Format for sending data

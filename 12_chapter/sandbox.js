@@ -79,3 +79,4 @@ getTodos("todos/luigi.json").then( data =>{
 // JSON.parse() takes a json string and converts it into a javascript object
 // JSON.stringify() takes a javascript object and converts it into a json string
 
+// promise is an object that represents the eventual completion or failure of an asynchronous operation

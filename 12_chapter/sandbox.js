@@ -80,3 +80,7 @@ getTodos("todos/luigi.json").then( data =>{
 // JSON.stringify() takes a javascript object and converts it into a json string
 
 // promise is an object that represents the eventual completion or failure of an asynchronous operation
+//promise is in one of three states
+// 1. pending: initial state, neither fulfilled nor rejected
+// 2. fulfilled: meaning that the operation completed successfully
+// 3. rejected: meaning that the operation failed

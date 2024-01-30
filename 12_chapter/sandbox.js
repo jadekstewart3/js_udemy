@@ -84,3 +84,8 @@ getTodos("todos/luigi.json").then( data =>{
 // 1. pending: initial state, neither fulfilled nor rejected
 // 2. fulfilled: meaning that the operation completed successfully
 // 3. rejected: meaning that the operation failed
+// a promise is settled if it's not pending, meaning it has either been fulfilled or rejected
+// once settled, a promise can not be resettled
+// promise.then() is used to handle the fulfilled and rejected states
+// promise.catch() is used to handle the rejected state
+// promise.finally() is used to handle the settled state

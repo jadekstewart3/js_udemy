@@ -86,15 +86,30 @@
 
 
 //fetch api
-fetch("todos/luigi.json").then(response => {
-  console.log("resolved", response);
-  return response.json();
-}).then(data =>{
-  console.log(data);
-}).catch( err => {
-  console.log("rejected", err)
-});
+// fetch("todos/luigi.json").then(response => {
+//   console.log("resolved", response);
+//   return response.json();
+// }).then(data =>{
+//   console.log(data);
+// }).catch( err => {
+//   console.log("rejected", err)
+// });
 //fetch the data
 //return response.json() returns a promise
 //then we can use the data from the json file
 //catch any errors
+
+//async and await
+
+const getTodos = async () => {
+ const response = await fetch("todos/luigi.json");
+  const data = await response.json();
+  
+  return data;
+};
+
+getTodos().then(data => console.log("resolved:", data));
+//async function always returns a promise
+//await can only be used inside an async function
+//await pauses the execution of the function until the promise is resolved
+//await only works with promises

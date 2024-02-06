@@ -5,39 +5,33 @@
 // Synchronous code
 // JavaScript can run ONE statement at a time
 
-// What are HTTP requests?
-
-// Make HTTP requests to get data from another server
-
-// We make these requests to the API endpoints
-
 // Making HTTP requests  (XHR)
 
-const getTodos = (resource) => {
-  return new Promise((resolve, reject)=> {
+// const getTodos = (resource) => {
+//   return new Promise((resolve, reject)=> {
 
-    const request = new XMLHttpRequest();
-    // XMLHttpRequest is built into the javascript language
+//     const request = new XMLHttpRequest();
+//     // XMLHttpRequest is built into the javascript language
   
-    request.addEventListener("readystatechange", () => {
-      if (request.readyState === 4 && request.status === 200) {
-        const data = JSON.parse(request.responseText);
-        resolve(data);
-      } else if (request.readyState === 4) {
-        reject("could not fetch the data");
-      }
-    });
+//     request.addEventListener("readystatechange", () => {
+//       if (request.readyState === 4 && request.status === 200) {
+//         const data = JSON.parse(request.responseText);
+//         resolve(data);
+//       } else if (request.readyState === 4) {
+//         reject("could not fetch the data");
+//       }
+//     });
   
-    request.open("GET", resource);
-    request.send();
-  });
-};
+//     request.open("GET", resource);
+//     request.send();
+//   });
+// };
 
-getTodos("todos/luigi.json").then( data =>{
-  console.log("promise resolved:", data);
-}).catch( error =>{
-  console.log("promise rejected:", error);
-});
+// getTodos("todos/luigi.json").then( data =>{
+//   console.log("promise resolved:", data);
+// }).catch( error =>{
+//   console.log("promise rejected:", error);
+// });
 
 
 // getTodos('todos/luigi.json', (error, data) => {
@@ -89,3 +83,18 @@ getTodos("todos/luigi.json").then( data =>{
 // promise.then() is used to handle the fulfilled and rejected states
 // promise.catch() is used to handle the rejected state
 // promise.finally() is used to handle the settled state
+
+
+//fetch api
+fetch("todos/luigi.json").then(response => {
+  console.log("resolved", response);
+  return response.json();
+}).then(data =>{
+  console.log(data);
+}).catch( err => {
+  console.log("rejected", err)
+});
+//fetch the data
+//return response.json() returns a promise
+//then we can use the data from the json file
+//catch any errors

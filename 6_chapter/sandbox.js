@@ -341,3 +341,4 @@ document.addEventListener("wheel", e => {
   console.log(e.pageX, e.pageY);
 });
 //wheel is a scroll event
+//this will log the x and y position of the mouse on the page

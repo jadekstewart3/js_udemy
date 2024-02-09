@@ -1,3 +1,5 @@
+//this file is for interacting with the API
+//kind of like a service file
 const key = "SjnCAzIxpusUNQF5z0NGiUdUIayGLBZe";
 
 //get weather information
@@ -19,6 +21,4 @@ const getCity = async (city) => {
   return data[0];
 };
 
-getCity("golden").then((data) => {
-    return getWeather(data.Key);
-  }).then(data => console.log(data)).catch((err) => console.log(err));
+

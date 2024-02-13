@@ -20,6 +20,16 @@ const updateUI = data => {
       <span>&deg;C</span>
     </div>
   `;
+
+  // update night/day icons and images
+  let timeSrc = null;
+  if(weather.IsDayTime){
+    timeSrc = "img/day.svg";
+  } else {
+    timeSrc = "img/night.svg";
+  }
+  time.setAttribute("src", timeSrc);
+
   //remove d-none class if present 
   if(card.classList.contains("d-none")){
     card.classList.remove("d-none");

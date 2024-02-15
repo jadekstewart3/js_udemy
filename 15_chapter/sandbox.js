@@ -20,3 +20,7 @@ console.log(userOne.email, userOne.username);
 userOne.login();
 
 //would be easier to use a constructor function
+
+//Classes
+//class is like a blueprint for an object - describes all the basic properties and functionality that an object should have
+//object is an instance of a class

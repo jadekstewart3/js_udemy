@@ -19,3 +19,9 @@ name = localStorage.getItem('name');
 age = localStorage.age;
 
 console.log(name, age);
+
+// deleting data from local storage
+// localStorage.removeItem("name");
+//remove an element from local storage
+// localStorage.clear();
+//remove all items from local storage

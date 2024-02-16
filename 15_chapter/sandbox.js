@@ -33,5 +33,23 @@ class User {
     //set up properties
     this.username = username;
     this.email = email;
+    this.score = 0;
+  }
+  //arrow functions dont bind a value to the this keyword when they are called
+  login(){
+    console.log(`${this.username} just logged in`);
+    return this;
+  };
+
+  logout(){
+    console.log(`${this.username} just logged out`);
+    return this;
+  }
+
+  incScore(){
+    this.score ++;
+    console.log(`${this.username} has a score of ${this.score}`);
+    return this;
   }
 }
+//must return an object explicitly in JS otherwise it will return undefined

@@ -81,10 +81,12 @@ function User(username, email){
 
 User.prototype.login = function(){
   console.log(`${this.username} has logged in`);
+  return this;
 }
 
 User.prototype.logout = function(){
   console.log(`${this.username} has logged out`);
+  return this;
 }
 // the new keyword
 // 1 - it creates a new empty object {}

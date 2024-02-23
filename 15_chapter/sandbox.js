@@ -78,7 +78,24 @@ function User(username, email){
   this.username = username;
   this.email = email;
 }
+
+User.prototype.login = function(){
+  console.log(`${this.username} has logged in`);
+}
+
+User.prototype.logout = function(){
+  console.log(`${this.username} has logged out`);
+}
 // the new keyword
 // 1 - it creates a new empty object {}
 // 2 - it binds the value of this to the new empty object
-// 3 - i calls the constructor function to build the object
+// 3 - i calls the constructor function to build the 
+
+const userOne = new User('mario', 'mario@thenetninja.com');
+const userTwo = new User('luigi', 'luigi@thenetninja.com');
+
+userOne.login();
+
+//Prototypes
+// every object in JS has a prototype
+// prototypes contain all the methods for that object type

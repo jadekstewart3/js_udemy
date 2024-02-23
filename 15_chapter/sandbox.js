@@ -58,14 +58,18 @@ const userTwo = new User('luigi', 'luigi@gmail.com');
 //must return an object explicitly in JS otherwise it will return undefined
 
 class Admin extends User {
+  constructor(ussername, email, title){
+    super(username, email);
+    this.title = title;
+  }
   deleteUser(user){
     users = users.filter(u => 
       u.username !== user.username);
     }
   }
   
-  const userThree = new Admin('yoshi', 'yoshi@gmail.com');
+  const userThree = new Admin('yoshi', 'yoshi@gmail.com', "black-belt-ninja");
   let users = [userOne, userTwo, userThree];
 
 userThree.deleteUser(userTwo);
-console.log(users);
+console.log(userThree);

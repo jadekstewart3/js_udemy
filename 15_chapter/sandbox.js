@@ -74,6 +74,11 @@
 // userThree.deleteUser(userTwo);
 // console.log(userThree);
 
+// the new keyword
+// 1 - it creates a new empty object {}
+// 2 - it binds the value of this to the new empty object
+// 3 - i calls the constructor function to build the 
+
 function User(username, email){
   this.username = username;
   this.email = email;
@@ -88,14 +93,21 @@ User.prototype.logout = function(){
   console.log(`${this.username} has logged out`);
   return this;
 }
-// the new keyword
-// 1 - it creates a new empty object {}
-// 2 - it binds the value of this to the new empty object
-// 3 - i calls the constructor function to build the 
+
+function Admin(username, email){
+  User.call(this, username, email);
+  this.title = title
+}
+
+Admin.prototype = Object.create(User.prototype);
+
+Admin.prototype.deleteUser = function(){
+  //delete a user
+};
 
 const userOne = new User('mario', 'mario@thenetninja.com');
 const userTwo = new User('luigi', 'luigi@thenetninja.com');
-
+const userThree = new Admin('Peach', 'peach@thenetninja.com', 'black-belt-ninja');
 userOne.login();
 
 //Prototypes

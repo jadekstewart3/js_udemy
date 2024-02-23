@@ -52,4 +52,20 @@ class User {
     return this;
   }
 }
+
+const userOne = new User('mario', 'mario@gmail.com'); 
+const userTwo = new User('luigi', 'luigi@gmail.com');
 //must return an object explicitly in JS otherwise it will return undefined
+
+class Admin extends User {
+  deleteUser(user){
+    users = users.filter(u => 
+      u.username !== user.username);
+    }
+  }
+  
+  const userThree = new Admin('yoshi', 'yoshi@gmail.com');
+  let users = [userOne, userTwo, userThree];
+
+userThree.deleteUser(userTwo);
+console.log(users);

@@ -22,11 +22,22 @@ const db = getFirestore();
 const colRef = collection(db, 'recipies');
 
 //get collection data
-getDocs(colRef).then((snapshot) => {
-  let recipies = []; 
-  snapshot.docs.forEach((doc) =>{
-    recipies.push({...doc.data(), id: doc.id})
-  })
-  console.log(recipies);
-})
-.catch(error => console.log(error.message));
+const list = document.querySelector('ul');
+
+const addRecipe = (recipe) => {
+  let time = recipe.created_at.toDate();
+  let html = 
+  `
+  <li>
+    <div>${recipe.title}</div>
+    <div>${time}</div>
+  </li>
+  `;
+  list.innerHTML += html;
+}
+
+getDocs(colRef).then( snapshot => {
+  snapshot.docs.forEach(doc => {
+    addRecipe(doc.data()); 
+  });
+}).catch(error => {console.log(error.message)});

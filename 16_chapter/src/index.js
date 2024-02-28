@@ -1,6 +1,6 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import {initializeApp} from 'firebase/app';
-import {getFirestore, collection, getDocs, addDoc} from 'firebase/firestore';
+import {getFirestore, collection, getDocs, addDoc, deleteDoc, doc} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6IiTwwYixLUzxgydsy7MsWe31zynIX6Y",
@@ -24,13 +24,14 @@ const colRef = collection(db, 'recipies');
 //get collection data
 const list = document.querySelector('ul');
 
-const addRecipe = (recipe) => {
+const addRecipe = (recipe, id) => {
   let time = recipe.created_at.toDate();
   let html = 
   `
-  <li>
+  <li data-id="${id}">
     <div>${recipe.title}</div>
     <div>${time}</div>
+    <button class="btn btn-danger btn-sm my-2">Delete</button>  
   </li>
   `;
   list.innerHTML += html;
@@ -38,7 +39,7 @@ const addRecipe = (recipe) => {
 
 getDocs(colRef).then( snapshot => {
   snapshot.docs.forEach(doc => {
-    addRecipe(doc.data()); 
+    addRecipe(doc.data(), doc.id); 
   });
 }).catch(error => {console.log(error.message)});
 
@@ -53,9 +54,19 @@ form.addEventListener("submit", e =>{
     created_at: new Date()
   }).then(() => {
     form.reset();
-    console.log('recipe added');
+    console.log('Recipe Added!');
   }).catch(error => {
     console.log(error.message);
   });
 });
 
+//delete documents
+list.addEventListener('click', e => {
+  if(e.target.tagName === "BUTTON"){
+    const id = e.target.parentElement.getAttribute('data-id');
+    const docRef = doc(db, 'recipies', id);
+    deleteDoc(docRef).then(() => {
+      console.log('Recipe Deleted!');
+    });
+  }
+})

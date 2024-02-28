@@ -1,6 +1,6 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import {initializeApp} from 'firebase/app';
-import {getFirestore, collection, getDocs, addDoc, deleteDoc, doc} from 'firebase/firestore';
+import {getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6IiTwwYixLUzxgydsy7MsWe31zynIX6Y",
@@ -37,11 +37,26 @@ const addRecipe = (recipe, id) => {
   list.innerHTML += html;
 }
 
-getDocs(colRef).then( snapshot => {
-  snapshot.docs.forEach(doc => {
-    addRecipe(doc.data(), doc.id); 
+const deleteRecipe = (id) => {
+  const recipes = document.querySelectorAll("li");
+  recipes.forEach(recipe => {
+    if(recipe.getAttribute('data-id') === id){
+      recipe.remove();
+    }
   });
-}).catch(error => {console.log(error.message)});
+}
+
+//get real time collection data
+onSnapshot(colRef, snapshot => {
+  snapshot.docChanges().forEach(change => {
+    const doc = change.doc;
+    if(change.type === 'added'){
+      addRecipe(doc.data(), doc.id);
+    } else if(change.type === 'removed'){
+      deleteRecipe(doc.id); 
+    }
+  });
+});
 
 //add documents
 const form = document.querySelector('form'); 

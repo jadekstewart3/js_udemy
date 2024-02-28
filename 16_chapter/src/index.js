@@ -47,7 +47,7 @@ const deleteRecipe = (id) => {
 }
 
 //get real time collection data
-onSnapshot(colRef, snapshot => {
+const unsub = onSnapshot(colRef, snapshot => {
   snapshot.docChanges().forEach(change => {
     const doc = change.doc;
     if(change.type === 'added'){
@@ -84,4 +84,13 @@ list.addEventListener('click', e => {
       console.log('Recipe Deleted!');
     });
   }
-})
+});
+
+//unsub from database changes
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  unsub();
+  console.log('Unsubscribed from collection changes');
+});
+// store the function that litens to the database changes in a variable and call it to stop listening to the changes
+// then call the function to stop listening to the changes

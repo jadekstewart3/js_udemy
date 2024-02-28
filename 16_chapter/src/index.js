@@ -1,6 +1,6 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import {initializeApp} from 'firebase/app';
-import {getFirestore, collection, getDocs} from 'firebase/firestore';
+import {getFirestore, collection, getDocs, addDoc} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6IiTwwYixLUzxgydsy7MsWe31zynIX6Y",
@@ -41,3 +41,21 @@ getDocs(colRef).then( snapshot => {
     addRecipe(doc.data()); 
   });
 }).catch(error => {console.log(error.message)});
+
+//add documents
+const form = document.querySelector('form'); 
+
+form.addEventListener("submit", e =>{
+  e.preventDefault();
+
+  addDoc(colRef, {
+    title: form.recipe.value,
+    created_at: new Date()
+  }).then(() => {
+    form.reset();
+    console.log('recipe added');
+  }).catch(error => {
+    console.log(error.message);
+  });
+});
+

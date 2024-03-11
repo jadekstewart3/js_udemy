@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     app: './scripts/app.js',
     chat: './scripts/chat.js',
-    ui: './src/ui.js'
+    ui: './scripts/ui.js'
   }
     ,
   output: {

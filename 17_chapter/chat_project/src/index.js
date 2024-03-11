@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection } from 'firebase/firestore';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6IiTwwYixLUzxgydsy7MsWe31zynIX6Y",
@@ -20,3 +20,5 @@ const db = getFirestore();
 
 //collection reference
 const chatsRef = collection(db, 'chats');
+
+export {chatsRef};
